@@ -83,6 +83,7 @@ function imgUpload($file){
 
     //操作失败查看上传目录权限
     if(!move_uploaded_file($file['tmp_name'], $imgPath)){
+        die('111');
         return -3;
     }else{
         return $imgUrl;

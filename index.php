@@ -1,4 +1,5 @@
 <?php 
+echo getcwd();
 include_once './lib/fun.php';
 $login=checkLogin();
 if($login){

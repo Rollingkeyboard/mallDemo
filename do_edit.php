@@ -37,11 +37,20 @@ if(!empty($_POST['name'])){
     if(empty($content)){
         msg(2,'画品详情不能为空');
     }
+    $pic=imgUpload($_FILES['file']);
+    if($pic===-1){
+        msg(2,'请上传合法图像');
+    }elseif($pic===-2){
+        msg(2,'请上传png,gif,jpg类型文件');
+    }elseif ($pic===-3) {
+        msg(2,'服务器繁忙,请稍后再试');
+    }
 
     $update=array(
     	'name'=>$name,
     	'price'=>$price,
     	'des'=>$des,
+        'pic'=>$pic,
     	'content'=>$content,
     	'update_time'=>$_SERVER['REQUEST_TIME']
     );
@@ -65,7 +74,7 @@ if(!empty($_POST['name'])){
     //更新sql
     $updateSql='';
     foreach ($update as $key => $value) {
-    	$updateSql.="{$key}={$value},";  
+    	$updateSql.="{$key}='{$value}',";  
     }
 
     //去除多余,

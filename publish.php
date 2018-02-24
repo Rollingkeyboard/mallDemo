@@ -35,11 +35,11 @@ if(!empty($_POST['name'])){
     }
 
     $pic=imgUpload($_FILES['file']);
-    if($img===-1){
+    if($pic===-1){
         msg(2,'请上传合法图像');
-    }elseif($img===-2){
+    }elseif($pic===-2){
         msg(2,'请上传png,gif,jpg类型文件');
-    }elseif ($img===-3) {
+    }elseif ($pic===-3) {
         msg(2,'服务器繁忙,请稍后再试');
     }
 
@@ -62,16 +62,7 @@ if(!empty($_POST['name'])){
     }else{
         echo mysql_error();
     }
-
-
-
-
 }
-
-
-
-
-
 
 ?>
 <!DOCTYPE html>

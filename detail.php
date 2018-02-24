@@ -1,9 +1,9 @@
 <?php 
 date_default_timezone_set("PRC");
-include_once './lib/fun.php';
-if(!checkLogin()){
-    msg(2,'请登录','login.php');
-}
+// include_once './lib/fun.php';
+// if(!checkLogin()){
+//     msg(2,'请登录','login.php');
+// }
 
 $user=$_SESSION['user'];
 
